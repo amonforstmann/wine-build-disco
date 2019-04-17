@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
-set -e
-set -o pipefail
-
-# prefer english command output
-export LC_ALL="C"
 
 # script for https://wiki.winehq.org/Building_Wine#Shared_WoW64
+
+# exit on errors
+set -e
+set -o pipefail
 
 # configuration
 NUMTHREADS=8
@@ -13,6 +12,9 @@ OPTIONS="--enable-vulkan --enable-vkd3d"
 
 WINEREPO="git://source.winehq.org/git/wine.git"
 WINETRICKSREPO="git@github.com:Winetricks/winetricks.git"
+
+# prefer english command output
+export LC_ALL="C"
 
 # prepare ubuntu
 sudo apt install -y \
