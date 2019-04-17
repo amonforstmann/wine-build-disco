@@ -8,9 +8,10 @@ set -o pipefail
 
 # configuration
 NUMTHREADS=8
-OPTIONS="--enable-vulkan --enable-vkd3d"
+OPTIONS="" # --enable-vulkan --enable-vkd3d"
 
 WINEREPO="git://source.winehq.org/git/wine.git"
+WINESTAGINGREPO="git@github.com:wine-staging/wine-staging.git"
 WINETRICKSREPO="git@github.com:Winetricks/winetricks.git"
 
 # prefer english command output
@@ -96,6 +97,11 @@ SRCDIR=${DIR}/source
 git -C ${SRCDIR} pull || git clone ${WINEREPO} ${SRCDIR}
 cd ${SRCDIR}
 
+# get wine-staging
+DIRSTAGING=${DIR}/staging
+git -C ${DIRSTAGING} pull || git clone ${WINESTAGINGREPO} ${DIRSTAGING}
+cd ${DIRSTAGING}/patches
+./patchinstall.sh DESTDIR=${SRCDIR} --all
 
 # build 64 bit wine
 DIR64=${DIR}/64

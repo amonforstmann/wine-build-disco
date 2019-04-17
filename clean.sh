@@ -16,3 +16,5 @@ DIR32=${DIR}/32
 cd ${DIR32}
 sudo make uninstall
 make clean
+
+rm -rf source
