@@ -7,6 +7,7 @@ RUN dpkg --add-architecture i386 && \
     apt install -y \
         bash \
         git \
+        flex \
         gcc-multilib \
         ccache \
         \

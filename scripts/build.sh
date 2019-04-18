@@ -43,7 +43,7 @@ ${SRCDIR}/configure ${OPTIONS64} && make -j${NUMTHREADS} -l${NUMTHREADS}
 
 # build 32 bit libs for wine 64
 DIR32=${DIR}/32
-mkdir -p ${DIR64}
+mkdir -p ${DIR32}
 OPTIONS64="${OPTIONS} --with-wine64="${DIR64}
 cd ${DIR32}
 PKG_CONFIG_PATH=/usr/lib/i386-linux-gnu/pkgconfig ${SRCDIR}/configure ${OPTIONS32} && make -j${NUMTHREADS} -l${NUMTHREADS}
@@ -51,16 +51,16 @@ PKG_CONFIG_PATH=/usr/lib/i386-linux-gnu/pkgconfig ${SRCDIR}/configure ${OPTIONS3
 
 # install wine 32 bit first
 cd ${DIR32}
-sudo make install
+make install
 
 # install wine 64 bit
 cd ${DIR64}
-sudo make install
+make install
 
 
 # get fresh winetricks sources
 WTDIR=${DIR}/winetricks
 git -C ${WTDIR} pull || git clone ${WINEREPO} ${WTDIR}
 cd ${WTDIR}
-sudo cp src/winetricks /usr/local/bin/winetricks
-sudo chmod a+x /usr/local/bin/winetricks
+cp src/winetricks /usr/local/bin/winetricks
+chmod a+x /usr/local/bin/winetricks
