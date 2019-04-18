@@ -10,11 +10,12 @@ set -o pipefail
 NUMTHREADS=8
 OPTIONS="" # --enable-vulkan --enable-vkd3d"
 
-WINEREPO="https://source.winehq.org/git/wine.git/"
+#WINEREPO="https://source.winehq.org/git/wine.git/"
+WINEREPO="https://github.com/wine-mirror/wine.git"
 WINESTAGINGREPO="https://github.com/wine-staging/wine-staging.git"
 WINETRICKSREPO="https://github.com/Winetricks/winetricks.git"
 
-# prefer english command output
+# english command output
 export LC_ALL="C"
 
 # enable ccache

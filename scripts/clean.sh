@@ -2,7 +2,7 @@
 set -e
 set -o pipefail
 
-# prefer english command output
+# english command output
 export LC_ALL="C"
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
