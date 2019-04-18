@@ -10,9 +10,9 @@ set -o pipefail
 NUMTHREADS=8
 OPTIONS="" # --enable-vulkan --enable-vkd3d"
 
-WINEREPO="git://source.winehq.org/git/wine.git"
-WINESTAGINGREPO="git@github.com:wine-staging/wine-staging.git"
-WINETRICKSREPO="git@github.com:Winetricks/winetricks.git"
+WINEREPO="https://source.winehq.org/git/wine.git/"
+WINESTAGINGREPO="https://github.com/wine-staging/wine-staging.git"
+WINETRICKSREPO="https://github.com/Winetricks/winetricks.git"
 
 # prefer english command output
 export LC_ALL="C"

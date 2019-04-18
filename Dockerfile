@@ -6,6 +6,7 @@ RUN dpkg --add-architecture i386 && \
     apt install -y apt-utils && \
     apt install -y \
         bash \
+        git \
         gcc-multilib \
         ccache \
         \
@@ -75,6 +76,7 @@ RUN dpkg --add-architecture i386 && \
         libgssglue-dev && \
     apt-get clean
 
+COPY . /usr/src
 WORKDIR /usr/src
 CMD ["bash", "scripts/build.sh"]
 
