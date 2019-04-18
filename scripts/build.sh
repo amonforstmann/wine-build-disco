@@ -20,11 +20,11 @@ export LC_ALL="C"
 # enable ccache
 export PATH="/usr/lib/ccache:$PATH"
 
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"/../build
 
 # get fresh wine sources
 SRCDIR=${DIR}/source
-git -C ${SRCDIR} pull || git clone ${WINEREPO} ${SRCDIR}
+git -C ${SRCDIR} pull || git clone --verbose ${WINEREPO} ${SRCDIR}
 cd ${SRCDIR}
 
 # get wine-staging
